@@ -9,6 +9,7 @@ import {
   Route,
   Link,
 } from "react-router-dom";
+import axios from 'axios'
 
 function App() {
 
@@ -22,8 +23,8 @@ function App() {
       ),
     },
     {
-      path: "validate",
-      element: <CodeValidate/>,
+      path:"/qr/:link",
+      element: <CodeDownload/>,
     },
   ]);
 

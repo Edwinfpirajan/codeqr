@@ -1,7 +1,10 @@
-import React, { useState } from 'react'
-import axios from 'axios'
+import { useParams } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
+import './style.css'
 
-export const CodeDownload = () => {
+const CodeDownload = () => {
+  let { link } = useParams();
   const [pin, setPin] = useState('');
 
   const handleDownload = async () => {
@@ -10,27 +13,45 @@ export const CodeDownload = () => {
       return;
     }
     try {
-      const result = await axios.post(`https://qr-system-production.up.railway.app/api/qr-code/download/${pin}`)
-      const serial = result.data.serial;
+      const response = await axios.post(
+        `https://qr-system-production.up.railway.app/api/qr-code/download/${link}`,
+        {
+          pin: pin
+        },
+        {
+          responseType: 'blob'
+        }
+      );
       const url = window.URL.createObjectURL(new Blob([response.data]));
-      const link = document.createElement('a');
-      link.href = url;
-      link.setAttribute('download', 'qr.png');
-      document.body.appendChild(link);
-      link.click();
+      const downloadLink = document.createElement('a');
+      downloadLink.href = url;
+      downloadLink.setAttribute('download', 'qr.png');
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
     } catch (error) {
       console.log(error);
+      if (error.response) {
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+        alert("Error al generar QR, por favor verifica los datos ingresados o intente de nuevo más tarde");
+      } else if (error.request) {
+        console.log(error.request);
+        alert("Error al conectarse con el servidor, por favor verifica tu conexión a internet o intente de nuevo más tarde");
+      } else {
+        console.log('Error', error.message);
+        alert("Error desconocido, por favor intente de nuevo más tarde");
+      }
     }
   };
+
   return (
     <div className='body'>
-      <aside class="profile-card flex" >
+      <aside className="profile-card" >
         <header>
-          <div class="form__group field">
-            <input type="text" className="form__field" id="pin" maxLength="4" onChange={e => setPin(e.target.value)} />
-            <label for="name" className="form__label">PIN</label>
-            <button className='btn' onClick={handleDownload}>DESCARGAR</button>
-          </div>
+          <label>Ingrese el pin:</label>
+          <input type="text" id="pin" maxLength="4" onChange={e => setPin(e.target.value)} />
+          <button onClick={handleDownload}>Generar qr</button>
         </header>
       </aside>
     </div>
