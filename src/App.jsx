@@ -3,14 +3,34 @@ import reactLogo from './assets/react.svg'
 import CodeValidate from './assets/pages/codeValidate'
 import CodeDownload from './assets/pages/codeDownload'
 import styled from 'styled-components'
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Link,
+} from "react-router-dom";
 
 function App() {
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: (
+        <div>
+          <CodeDownload/>
+        </div>
+      ),
+    },
+    {
+      path: "validate",
+      element: <CodeValidate/>,
+    },
+  ]);
 
 
   return (
    <Container>
-      {/* <CodeValidate /> */}
-      <CodeDownload />
+    <RouterProvider router={router} />     
    </Container>
   )
 }
