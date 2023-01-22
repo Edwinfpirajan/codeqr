@@ -23,5 +23,5 @@ export const QrApi = {
     }catch (e) {
       return e.response.data
     }
-  }
+  },
 }

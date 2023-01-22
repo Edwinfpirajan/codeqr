@@ -12,7 +12,7 @@ function App() {
 
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: "download/:serial",
       element: (
         <div>
           <CodeDownload/>
