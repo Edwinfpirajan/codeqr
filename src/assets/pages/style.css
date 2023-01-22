@@ -1,7 +1,6 @@
-
 body {
     overflow: hidden;
-    background: #2c2e36 url("../img/bg.jpg") no-repeat center center fixed;
+    background: #2c2e36;
     background-size: cover;
     position: fixed;
     padding: 0px;
@@ -10,6 +9,24 @@ body {
     height: 100%;
     font: normal 14px/1.618em "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
+}
+
+.text-success {
+    color: #A5DC86;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.text-error {
+    color: #F27474;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.mini-text-error {
+    color: #F27474;
+    font-size: 1rem;
+    margin-top: 16px;
 }
 
 body:before {
@@ -83,7 +100,7 @@ p {
     text-align: center;
     -webkit-animation: moveIn 1s 3.1s ease forwards;
     animation: moveIn 1s 3.1s ease forwards;
-    
+
 }
 
 .profile-card header h1 {
@@ -117,7 +134,7 @@ p {
     animation: scaleIn 0.3s 3.5s ease forwards;
 }
 
-.profile-card header a>img {
+.profile-card header a > img {
     width: 120px;
     max-width: 100%;
     -webkit-border-radius: 50%;
@@ -128,7 +145,7 @@ p {
     box-shadow: 0px 0px 0px 8px rgba(0, 0, 0, 0.06);
 }
 
-.profile-card header a:hover>img {
+.profile-card header a:hover > img {
     -webkit-box-shadow: 0px 0px 0px 12px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 0px 0px 12px rgba(0, 0, 0, 0.1);
 }
@@ -476,11 +493,11 @@ p {
     }
 }
 
-.flex{
+.flex {
     display: flex;
     align-items: center;
     justify-content: center;
-        
+
 }
 
 /* INPUT  */
@@ -491,6 +508,7 @@ p {
     margin-top: 10px;
     width: 100%;
 }
+
 .form__field {
     font-family: inherit;
     width: 100%;
@@ -503,14 +521,17 @@ p {
     background: transparent;
     transition: border-color 0.2s;
 }
+
 .form__field::placeholder {
     color: transparent;
 }
+
 .form__field:placeholder-shown ~ .form__label {
     font-size: 1.3rem;
     cursor: text;
     top: 20px;
 }
+
 .form__label {
     position: absolute;
     top: 0;
@@ -519,6 +540,7 @@ p {
     font-size: 1rem;
     color: #9b9b9b;
 }
+
 .form__field:focus {
     padding-bottom: 6px;
     font-weight: 700;
@@ -526,6 +548,7 @@ p {
     border-image: linear-gradient(to right, #11998e, #38ef7d);
     border-image-slice: 1;
 }
+
 .form__field:focus ~ .form__label {
     position: absolute;
     top: 0;
@@ -535,14 +558,22 @@ p {
     color: #11998e;
     font-weight: 700;
 }
+
 /* reset input */
 .form__field:required, .form__field:invalid {
     box-shadow: none;
 }
+
 /* demo */
 
-.btn{
+.btn {
     margin-top: 30px;
     width: 150px;
     height: 50px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0  ;
 }
