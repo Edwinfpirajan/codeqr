@@ -41,6 +41,19 @@ export const qrSlice = createSlice({
         state.qrState.loading = true
       })
       .addCase(downloadQrAcion.fulfilled, (state, action) => {
+        if (action.payload.message !== 'Error') {
+          const url = window.URL.createObjectURL(new Blob([action.payload]));
+          const downloadLink = document.createElement('a');
+          downloadLink.href = url;
+          console.log(downloadLink)
+          downloadLink.setAttribute('download', 'qr.png');
+          document.body.appendChild(downloadLink);
+          downloadLink.click();
+          document.body.removeChild(downloadLink)
+          state.qrState.loading = false
+          state.qrState.status = 'Success'
+          return
+        }
         state.qrState.loading = false
         state.qrState.status = action.payload.message
         state.qrState.message = action.payload.data

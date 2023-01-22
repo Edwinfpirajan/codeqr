@@ -12,10 +12,10 @@ export const CodeValidate = () => {
   const {serial} = useParams()
   const dispatch = useDispatch()
   const {loading, status, message} = useSelector(selectQr)
-  const [error, setErr] = useState("")
+  const [error, setError] = useState("")
   const handleValidate = async () => {
     if (pin.length < 4 || pin === "") {
-      setErr("el campo no puede estar vacio")
+      setError("el campo no puede estar vacio")
       return
     }
     dispatch(validateQrAction({serial, pin}))
@@ -27,12 +27,12 @@ export const CodeValidate = () => {
       return
     }
     setPin(value)
-    setErr("")
+    setError("")
   }
   const handleRestart = () => {
     dispatch(clear())
     setPin('')
-    setErr('')
+    setError('')
   }
 
   return (
@@ -59,14 +59,14 @@ export const CodeValidate = () => {
                   <TextField
                     error={error}
                     type="number"
-                    sx={{input: {color: 'white'}}}
+                    sx={{input: {color: 'white'},label:{color:'#1976d2'}}}
                     id="pin"
                     label="PIN QR CODE"
-                    helperText="Campo Obligatirio"
+                    helperText={`${error && 'Campo Obligatirio'}`}
                     variant="standard"
                     onChange={handleOnChange}
                     value={pin}
-                    color='success'
+                    color='primary'
                     inputProps={{maxLength: 4}}
                     className={"form__field"}
                   />
