@@ -1,5 +1,3 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import CodeValidate from './assets/pages/codeValidate'
 import CodeDownload from './assets/pages/codeDownload'
 import styled from 'styled-components'
@@ -9,7 +7,6 @@ import {
   Route,
   Link,
 } from "react-router-dom";
-import axios from 'axios'
 
 function App() {
 
@@ -23,8 +20,8 @@ function App() {
       ),
     },
     {
-      path:"/qr/:link",
-      element: <CodeDownload/>,
+      path: "validate/:serial",
+      element: <CodeValidate/>,
     },
   ]);
 
