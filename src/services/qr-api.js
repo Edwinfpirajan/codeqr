@@ -1,7 +1,6 @@
 import axios from "axios";
 
-// axios.defaults.baseURL = "https://qr-system-production.up.railway.app/api/qr-code"
-axios.defaults.baseURL = "http://localhost:8080/api/qr-code"
+axios.defaults.baseURL = "https://qr-system-production.up.railway.app/api/qr-code"
 axios.defaults.method = 'post'
 
 export const QrApi = {
