@@ -1,4 +1,3 @@
-import axios from "axios";
 import './style.css'
 import {useParams} from "react-router-dom";
 import React, {useState} from "react";
@@ -21,13 +20,6 @@ const CodeDownload = () => {
       return
     }
     dispatch(downloadQrAcion({serial, pin}))
-
-    //   const url = window.URL.createObjectURL(new Blob([response.data]));
-    //   const downloadLink = document.createElement('a');
-    //   downloadLink.href = url;
-    //   downloadLink.setAttribute('download', 'qr.png');
-    //   document.body.appendChild(downloadLink);
-    //   downloadLink.click();
   };
 
   const handleOnChange = (e) => {
