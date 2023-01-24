@@ -93,8 +93,7 @@ p {
     padding: 40px 20px 30px 20px;
     display: inline-block;
     float: left;
-    border-right: 2px dashed #EEEEEE;
-    background: #313440;
+    background: none;
     color: #000000;
     margin-top: 50px;
     opacity: 0;
@@ -600,4 +599,42 @@ input[type=number]::-webkit-outer-spin-button {
     position: absolute;
     top: 110%;
     left: 0%;
+}
+
+@media (max-width:1280px) {
+    
+    header{
+        width: 270px !important;
+    }
+    
+}
+@media (max-width:1000px) {
+    
+    
+
+    header{
+        position: absolute;
+        display: flex;
+        margin-top: -170px !important;
+        width: 210px !important;
+        
+    }
+
+    @keyframes materia {
+        0% {
+            background: #E0E0E0;
+        }
+    
+        50% {
+            border-radius: 4px;
+        }
+    
+        100% {
+            width: 350px;
+            height: 480px;
+            background: #313440;
+            border-radius: 4px;
+        }
+    }
+    
 }
