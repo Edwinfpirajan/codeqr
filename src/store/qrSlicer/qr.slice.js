@@ -41,11 +41,10 @@ export const qrSlice = createSlice({
         state.qrState.loading = true
       })
       .addCase(downloadQrAcion.fulfilled, (state, action) => {
-        if (action.payload.message !== 'Error') {
-          const url = window.URL.createObjectURL(new Blob([action.payload]));
+        if (action.payload.message === 'Success') {
+          const url = window.URL.createObjectURL(b64toBlop(action.payload.data), {type: 'image/png'})
           const downloadLink = document.createElement('a');
           downloadLink.href = url;
-          console.log(downloadLink)
           downloadLink.setAttribute('download', 'qr.png');
           document.body.appendChild(downloadLink);
           downloadLink.click();
@@ -60,6 +59,16 @@ export const qrSlice = createSlice({
       })
   },
 });
+
+const b64toBlop = (b64Data, contentType = 'image/png') => {
+  const byteCharacters = atob(b64Data)
+  const byteNumbers = new Array(byteCharacters.length)
+  for (let i = 0; i < byteCharacters.length; i++) {
+    byteNumbers[i] = byteCharacters.charCodeAt(i)
+  }
+  const byteArray = new Uint8Array(byteNumbers)
+  return new Blob([byteArray])
+}
 
 export const {clear} = qrSlice.actions
 

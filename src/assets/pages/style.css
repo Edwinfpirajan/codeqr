@@ -1,7 +1,7 @@
 
 body {
     overflow: hidden;
-    background: #2c2e36 url("../img/bg.jpg") no-repeat center center fixed;
+    background: #2c2e36;
     background-size: cover;
     position: fixed;
     padding: 0px;
@@ -10,6 +10,24 @@ body {
     height: 100%;
     font: normal 14px/1.618em "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
+}
+
+.text-success {
+    color: #A5DC86;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.text-error {
+    color: #F27474;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.mini-text-error {
+    color: #F27474;
+    font-size: 1rem;
+    margin-top: 16px;
 }
 
 body:before {
@@ -26,8 +44,8 @@ body:before {
     border-radius: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    -webkit-animation: puff 0.5s 1.2s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, borderRadius 0.2s 2s linear forwards;
-    animation: puff 0.5s 1.2s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, borderRadius 0.2s 2s linear forwards;
+    -webkit-animation: puff 0.5s 1.4s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, borderRadius 0.2s 2s linear forwards;
+    animation: puff 0.5s 1.4s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, borderRadius 0.2s 2s linear forwards;
 }
 
 h1,
@@ -65,8 +83,8 @@ p {
     border-radius: 50%;
     -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(0, 0, 0, 0.23);
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(0, 0, 0, 0.23);
-    -webkit-animation: init 0.2s 0.05s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, moveDown .05s .04s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards, moveUp .05s .6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, materia .25s 1s cubic-bezier(0.86, 0, 0.07, 1) forwards;
-    animation: init 0.15s 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, moveDown .5s .4s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards, moveUp .5s .9s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, materia .25s 1s cubic-bezier(0.86, 0, 0.07, 1) forwards;
+    -webkit-animation: init 0.1s 0.09s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, moveDown .6s .4s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards, moveUp .6s 1.15s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, materia .4s 1.45s cubic-bezier(0.86, 0, 0.07, 1) forwards;
+    animation: init 0.1s 0.09s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, moveDown .6s .4s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards, moveUp .6s 1.15s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, materia .4s 1.45s cubic-bezier(0.86, 0, 0.07, 1) forwards;
 }
 
 .profile-card header {
@@ -113,8 +131,8 @@ p {
     border-radius: 50%;
     -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-    -webkit-animation: scaleIn 0.1s 2s ease forwards;
-    animation: scaleIn 0.1s 2s ease forwards;
+    -webkit-animation: scaleIn 0.1s 1.4s ease forwards;
+    animation: scaleIn 0.1s 1.4s ease forwards;
 }
 
 .profile-card header a>img {
@@ -545,4 +563,41 @@ p {
     margin-top: 30px;
     width: 150px;
     height: 50px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.mini-text-top {
+    color: #1976d2;
+    font-weight: lighter;
+    font-style: italic;
+    width: 100%;
+    position: absolute;
+    top: -15%;
+    left: 0%;
+}
+
+.mini-text-top-err {
+    color: #d21919;
+    font-weight: bold;
+    font-style: italic;
+    width: 100%;
+    position: absolute;
+    top: -15%;
+    left: 0%;
+}
+
+.mini-text-button {
+    color: #ffef41;
+    font-weight: lighter;
+    font-style: italic;
+    font-size: .8rem;
+    width: 100%;
+    position: absolute;
+    top: 110%;
+    left: 0%;
 }
