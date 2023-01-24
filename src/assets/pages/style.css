@@ -609,15 +609,20 @@ input[type=number]::-webkit-outer-spin-button {
     
 }
 @media (max-width:1000px) {
-    
-    
-
     header{
         position: absolute;
         display: flex;
         margin-top: -170px !important;
-        width: 210px !important;
+        width: auto !important;
         
+    }
+
+    .mini-text-top{
+        top: -25%;
+    }
+
+    .mini-text-button{
+        top: 120%;
     }
 
     @keyframes materia {
@@ -631,7 +636,7 @@ input[type=number]::-webkit-outer-spin-button {
     
         100% {
             width: 350px;
-            height: 480px;
+            height: 300px;
             background: #313440;
             border-radius: 4px;
         }
