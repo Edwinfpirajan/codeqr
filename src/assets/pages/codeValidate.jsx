@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import TextField from '@mui/material/TextField';
+import React, {useEffect, /*useState*/} from 'react'
+// import TextField from '@mui/material/TextField';
 import './style.css'
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
@@ -8,32 +8,38 @@ import ClipLoader from "react-spinners/ClipLoader";
 import {SuccessIcon, ErrorIcon} from "../utils_components/icons.jsx";
 
 export const CodeValidate = () => {
-  const [pin, setPin] = useState('')
+  // const [pin, setPin] = useState('')
   const {serial} = useParams()
   const dispatch = useDispatch()
   const {loading, status, message} = useSelector(selectQr)
-  const [error, setError] = useState("")
-  const handleValidate = async () => {
-    if (pin.length < 4 || pin === "") {
-      setError("el campo no puede estar vacio")
-      return
-    }
-    dispatch(validateQrAction({serial, pin}))
-  }
-  const handleOnChange = (e) => {
-    const {value} = e.target
-    if (value > 9999) {
-      this.value = value;
-      return
-    }
-    setPin(value)
-    setError("")
-  }
+  // const [error, setError] = useState("")
+  // const handleValidate = async () => {
+  //   if (pin.length < 4 || pin === "") {
+  //     setError("el campo no puede estar vacio")
+  //     return
+  //   }
+  //   dispatch(validateQrAction({serial, pin}))
+  // }
+  // const handleOnChange = (e) => {
+  //   const {value} = e.target
+  //   if (value > 9999) {
+  //     this.value = value;
+  //     return
+  //   }
+  //   setPin(value)
+  //   setError("")
+  // }
   const handleRestart = () => {
     dispatch(clear())
     setPin('')
     setError('')
   }
+
+  useEffect(() => {
+    setTimeout(() => {
+      dispatch(validateQrAction({serial}))
+    }, 3000)
+  }, [])
 
   return (
     <div className=''>
@@ -56,31 +62,16 @@ export const CodeValidate = () => {
                 </>
               ) : (
                 <>
-                  <TextField
-                    error={error}
-                    type="number"
-                    sx={{input: {color: 'white'},label:{color:'#1976d2'}}}
-                    id="pin"
-                    label="PIN QR CODE"
-                    helperText={`${error && 'Campo Obligatirio'}`}
-                    variant="standard"
-                    onChange={handleOnChange}
-                    value={pin}
-                    color='primary'
-                    inputProps={{maxLength: 4}}
-                    className={"form__field"}
+                  <ClipLoader
+                    color={"#ffffff"}
+                    loading={true}
+                    size={150}
+                    aria-label="Loading Spinner"
+                    data-testid="loader"
                   />
-                  <button className='btn' onClick={handleValidate}>VALIDAR QR</button>
                 </>)
             )
             }
-            <ClipLoader
-              color={"#ffffff"}
-              loading={loading}
-              size={150}
-              aria-label="Loading Spinner"
-              data-testid="loader"
-            />
           </div>
         </header>
       </aside>
