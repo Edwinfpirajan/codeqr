@@ -36,9 +36,9 @@ export const CodeValidate = () => {
   }
 
   useEffect(() => {
-    setTimeout(() => {
-      dispatch(validateQrAction({serial}))
-    }, 3000)
+    // setTimeout(() => {
+    //   dispatch(validateQrAction({serial}))
+    // }, 3000)
   }, [])
 
   return (
